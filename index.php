@@ -1,31 +1,19 @@
 <?php include './header.php';?>
-
+  <link href="./css/zanite-css.css" rel="stylesheet">
     <!-- Page Content -->
     <div class="container">
 
       <div class="row">
 
-        <div class="col-lg-2">
-
-          <h2 class="my-3">Categories</h2>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Computers</a>
-            <a href="#" class="list-group-item">Phones</a>
-            <a href="#" class="list-group-item">Accesories</a>
-          </div>
-
-          <h2 class="my-3">Sort By</h2>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Price</a>
-            <a href="#" class="list-group-item">Alfabetical Order</a>
-            <a href="#" class="list-group-item">Company</a>
-          </div>
+        <div class="col-xl-2">
+          <form action='./php/sort.php' method='post'>
+            <?php include './php/sortMenu.php';?>
+          </form>
         </div>
 
 
-
         <!-- /.col-lg-3 -->
-        <div class="col-lg-10">
+        <div class="col-xl-10">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -60,7 +48,7 @@
 
               while($row = mysqli_fetch_array($result)) {
                 echo "<div class='col-lg-4 col-md-6 mb-4'>";
-                echo "<div class='card card text-center h-100 w-280'>";
+                echo "<div class='card card text-center'>";
                 echo "<form action='./php/product.php' method='post'>";
                 echo "<button type='submit' class='btn btn-link' name='id' value='{$row['id_producto']}'><img class='card-img-top' src='". $row['p_foto'] ."' alt=''></button>";
                 echo "<div class='card-body'>";

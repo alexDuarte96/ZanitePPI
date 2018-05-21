@@ -110,3 +110,5 @@ include './headerAndFooter/header.php';
           }
         }
         ?>
+
+<?php include './headerAndFooter/footer.php';?>

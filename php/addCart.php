@@ -13,16 +13,20 @@
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $quantity = mysqli_query($con,"SELECT cantidad FROM usuario_producto WHERE u_mail='{$_SESSION['sess_user']}' AND id_producto=$product");
+    $quantity = mysqli_query($con,"SELECT cantidad FROM usuario_producto WHERE u_mail='{$_SESSION['sess_user']}' AND id_producto=$product AND pagado=0");
+
     $resul_cant = mysqli_fetch_array($quantity);
     if($resul_cant['cantidad']>0){
+      echo "act";
       $cantidad = $cantidad + $resul_cant['cantidad'];
-      mysqli_query($con,"UPDATE usuario_producto SET cantidad = $cantidad WHERE u_mail='{$_SESSION['sess_user']}' AND id_producto=$product");
+      mysqli_query($con,"UPDATE usuario_producto SET cantidad = $cantidad WHERE u_mail='{$_SESSION['sess_user']}' AND id_producto=$product AND pagado=0");
     }else{
-      $insert = "INSERT INTO usuario_producto VALUES"."("."$product, 0, $cantidad,'{$_SESSION['sess_user']}')";
+      echo "ins";
+      $insert = "INSERT INTO usuario_producto VALUES"."("."$product, 0, $cantidad,'{$_SESSION['sess_user']}', NULL)";
       $result = mysqli_query($con,$insert);
     }
 
     header("Location:./cart.php");
+    
   }
 ?>

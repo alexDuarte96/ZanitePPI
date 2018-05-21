@@ -40,7 +40,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Products</a>
+              <a class="nav-link" href="./php/sort.php"> Products</a>
 
             <?php
             session_start();
