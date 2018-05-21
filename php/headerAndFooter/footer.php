@@ -1,9 +1,10 @@
 <!-- Footer -->
   <br><br><br>
-  <footer class="py-2 bg-dark" style="left:0; bottom:0; width:100%; position:relative;">
+  <footer class="py-2" style="left:0; bottom:0; width:100%; position:relative; background:rgba(0, 123, 255, 0); z-index: 1; ">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Zanite 2018</p>
+      <h5 class="m-0 text-center" style="color:gray">Copyright &copy; Zanite 2018 &nbsp; &nbsp;| &nbsp; &nbsp; Alejandro Duarte - 00257308</h5>
     </div>
+    <br>
   <!-- /.container -->
   </footer>
 <!-- Bootstrap core JavaScript -->

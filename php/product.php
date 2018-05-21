@@ -25,15 +25,15 @@
             echo "<h3> $". $row['p_precio'] ."</h3><br>";
             echo "<h5 style='color: gray;'> Stock: ". $row['p_cantidad'] ."</h5><br>";
             if(isset($_SESSION['sess_user'])){
-              echo "<form class='form-inline' action='./addCart.php' method='post'>";
-              echo "<input type='hidden' name='product' value='{$row['id_producto']}'</input>";
-              echo "<button type='submit' class='btn btn-primary'>Add to Cart</button>";
-              echo "<div class='form-group'><h5> &nbsp&nbsp&nbsp Quantity: &nbsp</h5><input type='number' name='cantidad' min=1 max=20 value=1 class='form-control'></div></form>";
+              if($row['p_cantidad']>0){
+                echo "<form class='form-inline' action='./addCart.php' method='post'>";
+                echo "<input type='hidden' name='product' value='{$row['id_producto']}'</input>";
+                echo "<button type='submit' class='btn btn-primary'>Add to Cart</button>";
+                echo "<div class='form-group'><h5> &nbsp&nbsp&nbsp Quantity: &nbsp</h5><input type='number' name='cantidad' min=1 max={$row['p_cantidad']} value=1 class='form-control'></div></form>";
+              }
             }
             echo "</div></div>";
         }
-
-
       ?>
     </div>
     <!-- /.container -->
